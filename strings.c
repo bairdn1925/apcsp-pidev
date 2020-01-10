@@ -1,34 +1,42 @@
 #include <stdio.h>
 #include <string.h>
+void compare(char* c1, char*  c2)
+{
+if(strcmp(c1,c2) == 0)
+  {
+                printf("The two strings match\n");
+  }
+        else
+  {
+                printf("The strings do not match\n");
+  
+  }
+//printf("%d\n",strcmp(c1,c2));
+//printf("c1: %s	c2: %s\n",c1,c2);        
+}
 
 int main()
 {
-int i;
-int x;
-char alph1[26];
-char alph2[26] = "abcdefghijlmnopqrstuvwxyz";
-for (i = 0; i <= 25; i++)
-{
-        alph1[i] = 97 + i;
-}
-for (x = 0; x <= 25; x++)
-{
-        alph2[x] = 65 + x;
-}
-printf("%s\n", alph1);
-printf("%s\n", alph2);
+	char loopABC[30];
+	char* constantABC = "abcdefghijklmnopqrstuvwxyz";
+	char combine[48];	
+	
+	for(int i = 0; i <26; i++)
+  {
+		 loopABC[i] = i+97;
+	}
+	compare(constantABC,loopABC);
+	for(int i = 0; i < 26; i++)
+  {
+		loopABC[i] = i+65;
+	}
+	
+	compare(constantABC, loopABC);
 
-if (strcmp(alph1, alph2) == 0 )
-{
-        printf("The strings are the same. \n");
-}
-else
-{
-        printf("The strings are not the same. \n");
-}
-char alph3[52];
-strcpy(alph3, alph1);
-strcat(alph3, alph2);
-printf("%s, %s \n", alph1, alph2, alph3);
-}
+	printf("1: %s\n",constantABC); 
+	printf("2: %s\n",loopABC);  
 
+	 strcat(combine,constantABC);
+        strcat(combine,loopABC);
+	printf("3: %s\n",combine);  
+}
